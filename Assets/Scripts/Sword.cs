@@ -42,5 +42,10 @@ public class Sword : MonoBehaviour
 			Blade.GetComponent<MeshRenderer>().material.color = new Color(0.2443f, 0.5224f, 0.8490f, 0f);
 		}
 
+		if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+		{
+			IsActive = !IsActive;
+		}
+
 	}
 }
