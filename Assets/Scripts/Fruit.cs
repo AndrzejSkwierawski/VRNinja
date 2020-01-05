@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
-    public GameObject przeciwnik;
+    public GameObject enemy;
 
     private float timer = 0;
 
@@ -28,7 +28,7 @@ public class Fruit : MonoBehaviour
     void Generate()
     {
         Vector3 spawnFruit = new Vector3(Random.Range(-3f, 3f), 1f, 8f);
-        Instantiate(przeciwnik, spawnFruit, Quaternion.identity);
+        Instantiate(enemy, spawnFruit, Quaternion.identity);
     }
 
 
