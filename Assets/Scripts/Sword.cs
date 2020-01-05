@@ -25,20 +25,21 @@ public class Sword : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		//moving the sword up-down 
 		transform.Translate(moveSpeed * Input.GetAxis("Mouse X") * Time.deltaTime, moveSpeed * Input.GetAxis("Mouse Y") * Time.deltaTime, 0f, Space.World);
+		//rotating the sword
 		transform.Rotate(rotateSpeed * Input.GetAxis("Vertical") * Time.deltaTime, 0f, -rotateSpeed * Input.GetAxis("Horizontal") * Time.deltaTime);
+
+		//Handle.GetComponent<Renderer>().material.color = new Color(0.2443f, 0.5224f, 0.8490f, 1f);
 
 		if (IsActive)
 		{
-			//																R		G			B	Transparency
-			Blade.GetComponent<MeshRenderer>().material.color = new Color(0.2443f, 0.5224f, 0.8490f, 0f);
-			Handle.GetComponent<MeshRenderer>().material.color = new Color(0.2443f, 0.5224f, 0.8490f, 0f);
+			//															   R  G		B	  Transparency
+			Blade.GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0.11129f, 1f);
 		}
 		else
 		{
-			Blade.GetComponent<MeshRenderer>().material.color = new Color(0.2443f, 0.5224f, 0.8490f, 1f);
-			Handle.GetComponent<MeshRenderer>().material.color = new Color(0.2443f, 0.5224f, 0.8490f, 1f);
-
+			Blade.GetComponent<MeshRenderer>().material.color = new Color(0.2443f, 0.5224f, 0.8490f, 0f);
 		}
 
 	}
