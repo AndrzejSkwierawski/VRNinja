@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Sword : MonoBehaviour
 {
-	public bool IsActive = false;
+	public bool IsActive = true;
 	public GameObject Blade;
 	public GameObject Handle;
 
