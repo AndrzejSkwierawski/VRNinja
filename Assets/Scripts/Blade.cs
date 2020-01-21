@@ -21,8 +21,11 @@ public class Blade : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        Instantiate(half_fruit_right, col.gameObject.transform.position, Quaternion.identity);
-        Instantiate(half_fruit_left, col.gameObject.transform.position, Quaternion.identity);
-        Destroy(col.gameObject);
+        if (this.GetComponent<MeshRenderer>().enabled == true)
+        {
+            Instantiate(half_fruit_right, col.gameObject.transform.position, Quaternion.identity);
+            Instantiate(half_fruit_left, col.gameObject.transform.position, Quaternion.identity);
+            Destroy(col.gameObject);
+        }
     }
 }

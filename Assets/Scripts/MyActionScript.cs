@@ -13,11 +13,11 @@ public class MyActionScript : MonoBehaviour
     public SteamVR_Input_Sources handType;
 
     //reference to the sphere
-    public GameObject Sphere;
+    public GameObject Blade;
     // Start is called before the first frame update
     void Start()
     {
-        Sphere.GetComponent<MeshRenderer>().enabled = false;
+        Blade.GetComponent<MeshRenderer>().enabled = false;
         SphereOnOff.AddOnStateDownListener(TriggerDown, handType);
         SphereOnOff.AddOnStateUpListener(TriggerUp, handType);
     }
@@ -25,12 +25,12 @@ public class MyActionScript : MonoBehaviour
     public void TriggerUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
         Debug.Log("Trigger is up");
-        Sphere.GetComponent<MeshRenderer>().enabled = false;
+        Blade.GetComponent<MeshRenderer>().enabled = false;
     }
     public void TriggerDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
         Debug.Log("Trigger is down");
-        Sphere.GetComponent<MeshRenderer>().enabled = true;
+        Blade.GetComponent<MeshRenderer>().enabled = true;
     }
 
     // Update is called once per frame

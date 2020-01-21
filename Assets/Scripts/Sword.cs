@@ -8,8 +8,6 @@ public class Sword : MonoBehaviour
 	public bool IsActive = true;
 	public GameObject Blade;
 	public GameObject Handle;
-    public GameObject half_fruit_left, half_fruit_right;
-
 
     public float SwordMoveSpeed   = 2f;
 	public float SwordRotateSpeed = 25f;
@@ -22,6 +20,7 @@ public class Sword : MonoBehaviour
     {
 		moveSpeed   = SwordMoveSpeed;
 		rotateSpeed = SwordRotateSpeed;
+		Blade.GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0.11129f, 1f);
 	}
 
 	// Update is called once per frame
@@ -37,11 +36,12 @@ public class Sword : MonoBehaviour
 		if (IsActive)
 		{
 			//															   R  G		B	  Transparency
-			Blade.GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0.11129f, 1f);
+			Blade.GetComponent<MeshRenderer>().enabled = true;
 		}
 		else
 		{
-			Blade.GetComponent<MeshRenderer>().material.color = new Color(0.2443f, 0.5224f, 0.8490f, 0f);
+			Blade.GetComponent<MeshRenderer>().enabled = false;
+			//Blade.GetComponent<MeshRenderer>().material.color = new Color(0.2443f, 0.5224f, 0.8490f, 0f);
 		}
 
 		if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
@@ -50,10 +50,4 @@ public class Sword : MonoBehaviour
 		}
 
 	}
-    void OnCollisionEnter(Collision col)
-    {
-        Instantiate(half_fruit_right, col.gameObject.transform.position, Quaternion.identity);
-        Instantiate(half_fruit_left, col.gameObject.transform.position, Quaternion.identity);
-        Destroy(col.gameObject);
-    }
 }

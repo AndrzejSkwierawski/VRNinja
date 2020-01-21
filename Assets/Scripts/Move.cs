@@ -17,6 +17,10 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.z < -1000)
+        {
+            moveSpeed = 0;
+        }
         Vector3 direction = finalPoint - transform.position;
         transform.Translate(moveSpeed * direction[0] * Time.deltaTime, 
             moveSpeed * direction[1] * Time.deltaTime, moveSpeed * direction[2] * Time.deltaTime);
