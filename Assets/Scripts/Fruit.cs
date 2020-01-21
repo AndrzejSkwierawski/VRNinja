@@ -27,7 +27,7 @@ public class Fruit : MonoBehaviour
 
     void Generate()
     {
-        Vector3 spawnFruit = new Vector3(Random.Range(-3f, 3f), 1f, 8f);
+        Vector3 spawnFruit = new Vector3(Random.Range(-3f, 3f), 2f, 8f);
         Instantiate(enemy, spawnFruit, Quaternion.identity);
     }
 

@@ -10,7 +10,7 @@ public class Move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        finalPoint = new Vector3(Random.Range(-1f, 1f), 0f,-1f);
+        finalPoint = new Vector3(Random.Range(-1f, 1f), 1.5f,-1f);
         moveSpeed = 0.2f;
     }
 

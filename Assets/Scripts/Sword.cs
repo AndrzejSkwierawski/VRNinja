@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class Sword : MonoBehaviour
 {
-	public bool IsActive = false;
+	public bool IsActive = true;
 	public GameObject Blade;
 	public GameObject Handle;
+    public GameObject half_fruit_left, half_fruit_right;
 
-	public float SwordMoveSpeed   = 2f;
+
+    public float SwordMoveSpeed   = 2f;
 	public float SwordRotateSpeed = 25f;
 
 	private float moveSpeed;
@@ -48,4 +50,10 @@ public class Sword : MonoBehaviour
 		}
 
 	}
+    void OnCollisionEnter(Collision col)
+    {
+        Instantiate(half_fruit_right, col.gameObject.transform.position, Quaternion.identity);
+        Instantiate(half_fruit_left, col.gameObject.transform.position, Quaternion.identity);
+        Destroy(col.gameObject);
+    }
 }
