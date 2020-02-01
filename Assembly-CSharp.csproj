@@ -62,6 +62,8 @@
      <Compile Include="Assets\Scripts\RotateLeft.cs" />
      <Compile Include="Assets\Scripts\RotateRight.cs" />
      <Compile Include="Assets\Scripts\Sword.cs" />
+     <None Include="Assets\Fruit Pack\Shaders\ToonLitTransparent.shader" />
+     <None Include="Assets\Fruit Pack\Shaders\ToonLit.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>E:/STUDIA/SEMESTR9/RW/VRNinja/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
