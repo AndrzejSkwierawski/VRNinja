@@ -12,7 +12,7 @@ public class Move : MonoBehaviour
     {
         finalPoint = new Vector3(Random.Range(-1f, 1f), 1.5f,-2f);
         blade = (Blade)GameObject.FindObjectOfType(typeof(Blade));
-        MoveSpeed = blade.level / 2;
+        MoveSpeed = blade.level / 2f;
     }
 
     // Update is called once per frame

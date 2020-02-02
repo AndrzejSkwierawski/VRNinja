@@ -126,7 +126,6 @@ public class Blade : MonoBehaviour
 
         if (col.gameObject.tag == "Choice")
         {
-            Move[] fruits = (Move[])GameObject.FindObjectsOfType(typeof(Move));
             switch (col.gameObject.name)
             {
                 case "EasySphere":
