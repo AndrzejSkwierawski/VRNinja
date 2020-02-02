@@ -5,6 +5,8 @@ using UnityEngine;
 public class Fruit : MonoBehaviour
 {
     public GameObject enemy;
+    public GameObject enemy2;
+    public GameObject enemy3;
 
     private float timer = 0;
 
@@ -28,7 +30,22 @@ public class Fruit : MonoBehaviour
     void Generate()
     {
         Vector3 spawnFruit = new Vector3(Random.Range(-4f, 4f), 2f, 8f);
-        Instantiate(enemy, spawnFruit, Quaternion.identity);
+        int rand = Random.Range(1, 3);
+        GameObject fruit;
+        switch (rand)
+        {
+            case 1:
+                fruit = GameObject.Instantiate(enemy, spawnFruit, Quaternion.identity);
+                break;
+            case 2:
+                fruit = GameObject.Instantiate(enemy2, spawnFruit, Quaternion.identity);
+                break;
+            default:
+                fruit = GameObject.Instantiate(enemy3, spawnFruit, Quaternion.identity);
+                break;
+        }
+
+        fruit.tag = "Fruit";
     }
 
 
