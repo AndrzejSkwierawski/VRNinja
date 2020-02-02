@@ -33,7 +33,6 @@ public class Blade : MonoBehaviour
     void Start()
     {
         game = false;
-        //Generate();
     }
 
     // Update is called once per frame
@@ -129,13 +128,40 @@ public class Blade : MonoBehaviour
             switch (col.gameObject.name)
             {
                 case "EasySphere":
-                    level = 1;
+                    this.level = 1;
+                    this.Lives = 5;
+                    if (GameTypeLives) //only in time game type more time means easier gameplay
+                    {
+                        this.levelTime = 60;
+                    }
+                    else
+                    {
+                        this.levelTime = 180; //pnly time type
+                    }
                     break;
                 case "HardSphere":
-                    level = 3;
+                    this.level = 3;
+                    this.Lives = 2;
+                    if (GameTypeLives)
+                    {
+                        this.levelTime = 120;
+                    }
+                    else
+                    {
+                        this.levelTime = 100; //pnly time type
+                    }
                     break;
                 default:
-                    level = 2;
+                    this.level = 2;
+                    this.Lives = 3;
+                    if (GameTypeLives)
+                    {
+                        this.levelTime = 90;
+                    }
+                    else
+                    {
+                        this.levelTime = 120; //pnly time type
+                    }
                     break;
             }
 
