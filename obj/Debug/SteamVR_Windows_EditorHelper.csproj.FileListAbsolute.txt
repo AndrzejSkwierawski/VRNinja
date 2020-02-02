@@ -276,3 +276,4 @@ E:\STUDIA\SEMESTR9\RW\VRNinja\obj\Debug\SteamVR_Windows_EditorHelper.csprojAssem
 E:\STUDIA\SEMESTR9\RW\VRNinja\obj\Debug\SteamVR_Windows_EditorHelper.csproj.CopyComplete
 E:\STUDIA\SEMESTR9\RW\VRNinja\obj\Debug\SteamVR_Windows_EditorHelper.dll
 E:\STUDIA\SEMESTR9\RW\VRNinja\obj\Debug\SteamVR_Windows_EditorHelper.pdb
+E:\STUDIA\SEMESTR9\RW\VRNinja\Temp\bin\Debug\UnityEditor.Android.Extensions.dll

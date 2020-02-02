@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Blade : MonoBehaviour
 {
+    public bool GameTypeLives;
+    public bool GameTypeTime;
+
     public GameObject enemy;
     public GameObject enemy2;
     public GameObject enemy3;
@@ -11,20 +14,51 @@ public class Blade : MonoBehaviour
     public GameObject HalfFruitLeft, HalfFruitRight;
     public GameObject HalfFruitLeft2, HalfFruitRight2;
     public GameObject HalfFruitLeft3, HalfFruitRight3;
+
+    public TextMesh TimeText;
+    public TextMesh ScoreText;
+    public TextMesh LivesText;
     int rand;
+
+    public int Lives = 3;
+    public int Score = 0;
+    private float levelTime = 60;
 
     private float timer = 0;
 
+    private bool game = true;
     // Start is called before the first frame update
     void Start()
     {
+        game = true;
         Generate();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        LivesText.text = Lives.ToString();
+        ScoreText.text = Score.ToString();
+
+        if (levelTime <= 0 && GameTypeTime)
+        {
+            game = false;
+            TimeText.text = "Times's up";
+
+        }
+
+        if (Lives == 0 && GameTypeLives)
+        {
+            game = false;
+            TimeText.text = "You died";
+
+        }
+        if (game)
+        {
+            timer += Time.deltaTime;
+            levelTime -= Time.deltaTime;
+            TimeText.text = levelTime.ToString();
+        }
         if (timer > 5)
         {
             Generate();
@@ -41,36 +75,41 @@ public class Blade : MonoBehaviour
         {
             case 1:
                 fruit = GameObject.Instantiate(enemy, spawnFruit, Quaternion.identity);
+                fruit.tag = "Apple";
                 break;
             case 2:
                 fruit = GameObject.Instantiate(enemy2, spawnFruit, Quaternion.identity);
+                fruit.tag = "Strawberry";
                 break;
             default:
                 fruit = GameObject.Instantiate(enemy3, spawnFruit, Quaternion.identity);
+                fruit.tag = "Kiwi";
                 break;
         }
 
-        fruit.tag = "Fruit";
     }
 
     void OnCollisionEnter(Collision col)
     {
-        if (this.GetComponent<MeshRenderer>().enabled == true && col.gameObject.tag == "Fruit")
+        if (this.GetComponent<MeshRenderer>().enabled == true && (col.gameObject.tag == "Kiwi" || col.gameObject.tag == "Strawberry" || col.gameObject.tag == "Apple"))
         {
             GameObject right, left;
-            switch (rand)
+            switch (col.gameObject.tag)
             {
-                case 1:
+                case "Apple":
                     right = GameObject.Instantiate(HalfFruitRight, col.gameObject.transform.position, Quaternion.identity) as GameObject;
                     left = GameObject.Instantiate(HalfFruitLeft, col.gameObject.transform.position, Quaternion.identity) as GameObject;
+                    Score = 2;
                     break;
-                case 2:
+                case "Strawberry":
                     right = GameObject.Instantiate(HalfFruitRight2, col.gameObject.transform.position, Quaternion.identity) as GameObject;
                     left = GameObject.Instantiate(HalfFruitLeft2, col.gameObject.transform.position, Quaternion.identity) as GameObject;
+                    Score = 6;
                     break;
                 default:
                     right = GameObject.Instantiate(HalfFruitRight3, col.gameObject.transform.position, Quaternion.identity) as GameObject;
                     left = GameObject.Instantiate(HalfFruitLeft3, col.gameObject.transform.position, Quaternion.identity) as GameObject;
+                    Score = 4;
                     break;
             }
 

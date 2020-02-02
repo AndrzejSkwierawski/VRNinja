@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fruit
+  - Apple
+  - Strawberry
+  - Kiwi
   layers:
   - Default
   - TransparentFX

@@ -263,3 +263,4 @@ E:\STUDIA\SEMESTR9\RW\VRNinja\obj\Debug\SteamVR.csprojAssemblyReference.cache
 E:\STUDIA\SEMESTR9\RW\VRNinja\obj\Debug\SteamVR.csproj.CopyComplete
 E:\STUDIA\SEMESTR9\RW\VRNinja\obj\Debug\SteamVR.dll
 E:\STUDIA\SEMESTR9\RW\VRNinja\obj\Debug\SteamVR.pdb
+E:\STUDIA\SEMESTR9\RW\VRNinja\Temp\bin\Debug\UnityEditor.Android.Extensions.dll

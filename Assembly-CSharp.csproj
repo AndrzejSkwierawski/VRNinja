@@ -55,13 +55,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Blade.cs" />
-     <Compile Include="Assets\Scripts\Fruit.cs" />
-     <Compile Include="Assets\Scripts\Move.cs" />
-     <Compile Include="Assets\Scripts\MyActionScript.cs" />
-     <Compile Include="Assets\Scripts\RotateLeft.cs" />
-     <Compile Include="Assets\Scripts\RotateRight.cs" />
-     <Compile Include="Assets\Scripts\Sword.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Blade.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Fruit.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Move.cs" />
+     <Compile Include="Assets\Scenes\Scripts\MyActionScript.cs" />
+     <Compile Include="Assets\Scenes\Scripts\RotateLeft.cs" />
+     <Compile Include="Assets\Scenes\Scripts\RotateRight.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Sword.cs" />
      <None Include="Assets\Fruit Pack\Shaders\ToonLitTransparent.shader" />
      <None Include="Assets\Fruit Pack\Shaders\ToonLit.shader" />
  <Reference Include="Unity.Timeline.Editor">
