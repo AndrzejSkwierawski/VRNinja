@@ -18,7 +18,8 @@ public class Blade : MonoBehaviour
     public TextMesh TimeText;
     public TextMesh ScoreText;
     public TextMesh LivesText;
-    int rand;
+
+    public int level;
 
     public int Lives = 3;
     public int Score = 0;
@@ -26,12 +27,13 @@ public class Blade : MonoBehaviour
 
     private float timer = 0;
 
-    private bool game = true;
+    private int rand;
+    private bool game;
     // Start is called before the first frame update
     void Start()
     {
-        game = true;
-        Generate();
+        game = false;
+        //Generate();
     }
 
     // Update is called once per frame
@@ -58,12 +60,14 @@ public class Blade : MonoBehaviour
             timer += Time.deltaTime;
             levelTime -= Time.deltaTime;
             TimeText.text = levelTime.ToString();
+
+            if (timer > 5)
+            {
+                Generate();
+                timer = 0;
+            }
         }
-        if (timer > 5)
-        {
-            Generate();
-            timer = 0;
-        }
+
     }
 
     void Generate()
@@ -120,5 +124,29 @@ public class Blade : MonoBehaviour
             Destroy(col.gameObject);
         }
 
+        if (col.gameObject.tag == "Choice")
+        {
+            Move[] fruits = (Move[])GameObject.FindObjectsOfType(typeof(Move));
+            switch (col.gameObject.name)
+            {
+                case "EasySphere":
+                    level = 1;
+                    break;
+                case "HardSphere":
+                    level = 3;
+                    break;
+                default:
+                    level = 2;
+                    break;
+            }
+
+            game = true;
+
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Choice");
+            for (var i = 0; i < gameObjects.Length; i++)
+            {
+                Destroy(gameObjects[i]);
+            }
+        }
     }
 }

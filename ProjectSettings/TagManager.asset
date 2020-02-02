@@ -8,6 +8,7 @@ TagManager:
   - Apple
   - Strawberry
   - Kiwi
+  - Choice
   layers:
   - Default
   - TransparentFX
