@@ -106,17 +106,17 @@ public class Blade : MonoBehaviour
                 case "Apple":
                     right = GameObject.Instantiate(HalfFruitRight, col.gameObject.transform.position, Quaternion.identity) as GameObject;
                     left = GameObject.Instantiate(HalfFruitLeft, col.gameObject.transform.position, Quaternion.identity) as GameObject;
-                    Score = 2;
+                    Score += 2;
                     break;
                 case "Strawberry":
                     right = GameObject.Instantiate(HalfFruitRight2, col.gameObject.transform.position, Quaternion.identity) as GameObject;
                     left = GameObject.Instantiate(HalfFruitLeft2, col.gameObject.transform.position, Quaternion.identity) as GameObject;
-                    Score = 6;
+                    Score += 6;
                     break;
                 default:
                     right = GameObject.Instantiate(HalfFruitRight3, col.gameObject.transform.position, Quaternion.identity) as GameObject;
                     left = GameObject.Instantiate(HalfFruitLeft3, col.gameObject.transform.position, Quaternion.identity) as GameObject;
-                    Score = 4;
+                    Score += 4;
                     break;
             }
 
@@ -184,7 +184,7 @@ public class Blade : MonoBehaviour
         
 
         string[] scores = { "0", "0", "0" , "0", "0", "0", "0", "0", "0" };
-        scorepath = Application.persistentDataPath + "/settings.txt";
+        scorepath = "./settings.txt";
         if (!File.Exists(scorepath))
         {
                 File.WriteAllLines(scorepath, scores);

@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scenes\Scripts\Menu.cs" />
      <Compile Include="Assets\Scenes\Scripts\Move.cs" />
      <Compile Include="Assets\Scenes\Scripts\MyActionScript.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Results.cs" />
      <Compile Include="Assets\Scenes\Scripts\RotateLeft.cs" />
      <Compile Include="Assets\Scenes\Scripts\RotateRight.cs" />
      <Compile Include="Assets\Scenes\Scripts\Sword.cs" />
