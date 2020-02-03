@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Blade : MonoBehaviour
 {
@@ -30,6 +32,8 @@ public class Blade : MonoBehaviour
     private int rand;
     private bool game;
     // Start is called before the first frame update
+    private string scorepath;
+
     void Start()
     {
         game = false;
@@ -45,14 +49,14 @@ public class Blade : MonoBehaviour
         {
             game = false;
             TimeText.text = "Times's up";
-
+            WriteScore();
         }
 
         if (Lives == 0 && GameTypeLives)
         {
             game = false;
             TimeText.text = "You died";
-
+            WriteScore();
         }
         if (game)
         {
@@ -174,4 +178,50 @@ public class Blade : MonoBehaviour
             }
         }
     }
+
+    private void WriteScore()
+    {
+        
+
+        string[] scores = { "0", "0", "0" , "0", "0", "0", "0", "0", "0" };
+        scorepath = Application.persistentDataPath + "/settings.txt";
+        if (!File.Exists(scorepath))
+        {
+                File.WriteAllLines(scorepath, scores);
+        }
+        scores = File.ReadAllLines(scorepath);
+        int row;
+
+        if(this.GameTypeLives && this.GameTypeTime)
+        {
+            row = 2;
+        }
+        else if(this.GameTypeLives)
+        {
+            row = 1;
+        }
+        else
+        {
+            row = 0;
+        }
+
+        switch (level)
+        {
+            case 1:
+                if (Score > System.Int32.Parse(scores[0 + 3 * row]))
+                    scores[0 + 3 * row] = Score.ToString();
+                break;
+            case 3:
+                if (Score > System.Int32.Parse(scores[2 + 3 * row]))
+                    scores[2 + 3 * row] = Score.ToString();
+                break;
+            default:
+                if (Score > System.Int32.Parse(scores[1 + 3 * row]))
+                    scores[1 + 3 * row] = Score.ToString();
+                break;
+        }
+        File.WriteAllLines(scorepath, scores);
+    }
+
+    
 }
